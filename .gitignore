@@ -1,0 +1,13 @@
+.minecraft
+# idea
+out
+build
+*.ipr
+*.iws
+*.iml
+*.ms
+.idea
+.gradle
+*.conf
+*.exe
+*.jar

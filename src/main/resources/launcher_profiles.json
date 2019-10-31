@@ -1,0 +1,51 @@
+{
+  "analyticsFailCount": 0,
+  "analyticsToken": "",
+  "authenticationDatabase": {
+    "": {
+      "accessToken": "",
+      "profiles": {
+        "": {
+          "displayName": ""
+        }
+      },
+      "properties": [],
+      "username": ""
+    }
+  },
+  "clientToken": "",
+  "launcherVersion": {
+    "format": 0,
+    "name": "",
+    "profilesFormat": 0
+  },
+  "profiles": {
+    "Latest": {
+      "icon": "",
+      "javaArgs": "",
+      "lastUsed": "",
+      "lastVersionId": "",
+      "name": "",
+      "type": ""
+    }
+  },
+  "selectedUser": {
+    "account": "",
+    "profile": ""
+  },
+  "settings": {
+    "channel": "release",
+    "crashAssistance": true,
+    "enableAdvanced": true,
+    "enableAnalytics": true,
+    "enableHistorical": true,
+    "enableReleases": true,
+    "enableSnapshots": true,
+    "keepLauncherOpen": false,
+    "locale": "en-us",
+    "profileSorting": "ByLastPlayed",
+    "showGameLog": false,
+    "showMenu": true,
+    "soundOn": false
+  }
+}

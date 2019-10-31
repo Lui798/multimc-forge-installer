@@ -1,0 +1,9 @@
+{
+    "components": [
+        {
+            "cachedName": "Forge",
+            "cachedVersion": "28.1.74",
+            "uid": "net.minecraftforge"
+        }
+    ]
+}
