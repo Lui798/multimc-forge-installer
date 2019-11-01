@@ -58,7 +58,7 @@ public class ForgePatch extends Function {
 
                 patch.setMainClass(version.getMainClass());
                 patch.setType(version.getType());
-                patch.setVersion(version.getId().substring(version.getId().lastIndexOf("-") + 1));
+                patch.setVersion(version.getId());
                 String args = "";
                 for (String arg : version.getArguments().getGame()) {
                     args += arg + " ";
