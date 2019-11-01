@@ -50,17 +50,11 @@ class MCFolderChooser extends JPanel {
     }
 
     public void openChooser() {
-        boolean success = false;
-
-        while (!success) {
-            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                mf.setInstanceDir(chooser.getSelectedFile().getAbsolutePath());
-                success = true;
-            }
-            else {
-                LOG.warn("User did not click OK");
-                success = false;
-            }
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            mf.setInstanceDir(chooser.getSelectedFile().getAbsolutePath());
+        }
+        else {
+            System.exit(0);
         }
     }
 }

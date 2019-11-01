@@ -1,13 +1,12 @@
 package lui798.multimc_forge_installer.function;
 
+import lui798.multimc_forge_installer.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.FileSystems;
-import java.util.Arrays;
-import java.util.List;
 
 public class ForgeInstaller extends Function {
     private final Logger LOG = LoggerFactory.getLogger(ForgeInstaller.class);
@@ -16,17 +15,9 @@ public class ForgeInstaller extends Function {
     public String runFunction(String instanceDir, JFrame frame) {
         String[] keywords = {"forge", "installer", ".jar"};
         String[] no = {".log"};
-        List<File> files = Arrays.asList(FileSystems.getDefault().getPath(".").toFile().listFiles());
+        File[] files = FileSystems.getDefault().getPath(".").toFile().listFiles();
 
-        File forgeInstaller = null;
-
-        for (File f : files) {
-            if (!containsKeyword(f.getName(), no)) {
-                if (containsKeyword(f.getName(), keywords)) {
-                    forgeInstaller = f;
-                }
-            }
-        }
+        File forgeInstaller = FileUtils.findFile(files, keywords, no);
 
         if (forgeInstaller == null) {
             int choice = JOptionPane.showOptionDialog(frame, "Could not find a forge installer in the current directory. " +
@@ -54,19 +45,6 @@ public class ForgeInstaller extends Function {
         }
 
         return instanceDir;
-    }
-
-    public boolean containsKeyword(String input, String[] items) {
-        boolean result = false;
-        for (String item : items) {
-            if (input.toLowerCase().contains(item)) {
-                result = true;
-            }
-            else {
-                return false;
-            }
-        }
-        return result;
     }
 }
 

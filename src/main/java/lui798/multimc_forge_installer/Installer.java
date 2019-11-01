@@ -1,9 +1,6 @@
 package lui798.multimc_forge_installer;
 
-import lui798.multimc_forge_installer.function.ForgeInstaller;
-import lui798.multimc_forge_installer.function.Function;
-import lui798.multimc_forge_installer.function.LauncherProfileJson;
-import lui798.multimc_forge_installer.function.MinecraftFolder;
+import lui798.multimc_forge_installer.function.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,6 +40,7 @@ public class Installer {
         functions.add(new MinecraftFolder());
         functions.add(new LauncherProfileJson());
         functions.add(new ForgeInstaller());
+        functions.add(new ForgePatch());
     }
 
     private static void runFunctions() {
