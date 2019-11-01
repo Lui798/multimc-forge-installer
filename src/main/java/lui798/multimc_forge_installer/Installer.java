@@ -17,6 +17,12 @@ public class Installer {
         initFrame();
         initFunctions();
         runFunctions();
+
+        int choice = JOptionPane.showOptionDialog(frame,"Done!" + "\nRestart your MultiMC and launch your instance, Forge should"
+                        + "\nbe installed. You can use this installer multiple times.", "Installation Finished",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new String[]{"  OK  "}, "  OK  ");
+        if (choice == 0)
+            System.exit(0);
     }
 
     private static void initFrame() {
@@ -42,6 +48,7 @@ public class Installer {
         functions.add(new ForgeInstaller());
         functions.add(new ForgePatch());
         functions.add(new CopyLibraries());
+        functions.add(new CleanupInstance());
     }
 
     private static void runFunctions() {
