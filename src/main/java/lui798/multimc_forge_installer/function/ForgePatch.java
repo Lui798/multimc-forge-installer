@@ -5,7 +5,8 @@ import com.google.gson.GsonBuilder;
 import lui798.multimc_forge_installer.function.json.serialclass.DownloadArtifact;
 import lui798.multimc_forge_installer.function.json.serialclass.ForgePatchJson;
 import lui798.multimc_forge_installer.function.json.serialclass.ForgeVersionJson;
-import lui798.multimc_forge_installer.util.FileUtils;
+import lui798.multimc_forge_installer.util.FileHelper;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,19 +27,19 @@ public class ForgePatch extends Function {
         //Copy blank patch to patches folder
         String filename = "net.minecraftforge.json";
         InputStream forgePatch = getClass().getClassLoader().getResourceAsStream(filename);
-        FileUtils.copyResource(forgePatch, instanceDir + File.separator + dir.getName() + File.separator + filename);
+        FileHelper.copyResource(forgePatch, instanceDir + File.separator + dir.getName() + File.separator + filename);
         try {
             forgePatch.close();
         }
         catch (IOException ex) {
-            LOG.error(ex.toString());
+            LOG.error(ExceptionUtils.getStackTrace(ex));
         }
 
         String[] keywords = {"forge"};
         String[] no = {};
         File[] files = FileSystems.getDefault().getPath(instanceDir + File.separator + ".minecraft" + File.separator + "versions").toFile().listFiles();
 
-        File forgeVersion = FileUtils.findFile(files, keywords, no);
+        File forgeVersion = FileHelper.findFile(files, keywords, no);
 
         if (forgeVersion == null) {
             int choice = JOptionPane.showOptionDialog(frame, "Could not find a forge version in .minecraft/versions" +
@@ -77,7 +78,7 @@ public class ForgePatch extends Function {
                 patchWriter.close();
             }
             catch (IOException ex) {
-                LOG.error(ex.toString());
+                LOG.error(ExceptionUtils.getStackTrace(ex));
             }
         }
 

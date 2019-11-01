@@ -10,9 +10,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-public class FileUtils {
+public class FileHelper {
 
-    private static final Logger LOG = LoggerFactory.getLogger(FileUtils.class);
+    private static final Logger LOG = LoggerFactory.getLogger(FileHelper.class);
 
     public static void copyResource(InputStream source, String output) {
         try {

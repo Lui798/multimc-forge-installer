@@ -41,6 +41,7 @@ public class Installer {
         functions.add(new LauncherProfileJson());
         functions.add(new ForgeInstaller());
         functions.add(new ForgePatch());
+        functions.add(new CopyLibraries());
     }
 
     private static void runFunctions() {

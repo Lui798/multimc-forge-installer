@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.io.File;
 
 public class MinecraftFolder extends Function {
-
     private String instanceDir;
 
     @Override

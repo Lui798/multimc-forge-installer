@@ -1,4 +1,4 @@
-package lui798.multimc_forge_installer.function;
+package lui798.multimc_forge_installer.function.json.serialclass;
 
 import lui798.multimc_forge_installer.function.json.serialclass.DownloadArtifact;
 

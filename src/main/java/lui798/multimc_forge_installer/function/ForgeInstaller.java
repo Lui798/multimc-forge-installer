@@ -1,6 +1,7 @@
 package lui798.multimc_forge_installer.function;
 
-import lui798.multimc_forge_installer.util.FileUtils;
+import lui798.multimc_forge_installer.util.FileHelper;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +18,7 @@ public class ForgeInstaller extends Function {
         String[] no = {".log"};
         File[] files = FileSystems.getDefault().getPath(".").toFile().listFiles();
 
-        File forgeInstaller = FileUtils.findFile(files, keywords, no);
+        File forgeInstaller = FileHelper.findFile(files, keywords, no);
 
         if (forgeInstaller == null) {
             int choice = JOptionPane.showOptionDialog(frame, "Could not find a forge installer in the current directory. " +
@@ -40,7 +41,7 @@ public class ForgeInstaller extends Function {
                 proc.waitFor();
             }
             catch (IOException | InterruptedException ex) {
-                LOG.error(ex.toString());
+                LOG.error(ExceptionUtils.getStackTrace(ex));
             }
         }
 
@@ -51,6 +52,8 @@ public class ForgeInstaller extends Function {
 class StreamGobbler extends Thread {
     InputStream is;
     String type;
+
+    private final Logger LOG = LoggerFactory.getLogger(StreamGobbler.class);
 
     StreamGobbler(InputStream is, String type) {
         this.is = is;
@@ -63,8 +66,9 @@ class StreamGobbler extends Thread {
             BufferedReader br = new BufferedReader(isr);
             String line = null;
             while ((line = br.readLine()) != null);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+        }
+        catch (IOException ex) {
+            LOG.error(ExceptionUtils.getStackTrace(ex));
         }
     }
 }
