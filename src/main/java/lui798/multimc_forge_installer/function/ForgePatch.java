@@ -2,9 +2,9 @@ package lui798.multimc_forge_installer.function;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import lui798.multimc_forge_installer.function.json.serialclass.DownloadArtifact;
-import lui798.multimc_forge_installer.function.json.serialclass.ForgePatchJson;
-import lui798.multimc_forge_installer.function.json.serialclass.ForgeVersionJson;
+import lui798.multimc_forge_installer.function.json.patch.DownloadArtifact;
+import lui798.multimc_forge_installer.function.json.patch.ForgePatchJson;
+import lui798.multimc_forge_installer.function.json.patch.ForgeVersionJson;
 import lui798.multimc_forge_installer.util.FileHelper;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -42,7 +42,7 @@ public class ForgePatch extends Function {
         File forgeVersion = FileHelper.findFile(files, keywords, no);
 
         if (forgeVersion == null) {
-            int choice = JOptionPane.showOptionDialog(frame, "Could not find a forge version in .minecraft/versions" +
+            int choice = JOptionPane.showOptionDialog(frame, "Could not find a forge version in .minecraft/versions " +
                             "Please run the installer again and check \nthat the forge installer is installing to the .minecraft of your MultiMC instance.",
                     "Version Error", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, new String[]{"OK"}, "OK");
             if (choice == 0)

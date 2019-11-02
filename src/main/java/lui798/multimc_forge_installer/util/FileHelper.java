@@ -49,7 +49,7 @@ public class FileHelper {
     }
 
     private static boolean containsKeyword(String input, String[] items) {
-        boolean result = true;
+        boolean result = false;
         for (String item : items) {
             if (input.toLowerCase().contains(item)) {
                 return true;
