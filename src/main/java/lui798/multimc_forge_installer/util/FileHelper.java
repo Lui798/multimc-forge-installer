@@ -27,7 +27,7 @@ public class FileHelper {
         File outputFile = null;
         for (File f : files) {
             if (!containsKeyword(f.getName(), no)) {
-                if (containsKeyword(f.getName(), keywords)) {
+                if (containsKeywords(f.getName(), keywords)) {
                     outputFile = f;
                 }
             }
@@ -35,7 +35,7 @@ public class FileHelper {
         return outputFile;
     }
 
-    private static boolean containsKeyword(String input, String[] items) {
+    private static boolean containsKeywords(String input, String[] items) {
         boolean result = false;
         for (String item : items) {
             if (input.toLowerCase().contains(item)) {
@@ -43,6 +43,19 @@ public class FileHelper {
             }
             else {
                 return false;
+            }
+        }
+        return result;
+    }
+
+    private static boolean containsKeyword(String input, String[] items) {
+        boolean result = true;
+        for (String item : items) {
+            if (input.toLowerCase().contains(item)) {
+                return true;
+            }
+            else {
+                result = false;
             }
         }
         return result;

@@ -15,7 +15,7 @@ public class ForgeInstaller extends Function {
     @Override
     public String runFunction(String instanceDir, JFrame frame) {
         String[] keywords = {"forge", "installer", ".jar"};
-        String[] no = {".log"};
+        String[] no = {".log", "multimc"};
         File[] files = FileSystems.getDefault().getPath(".").toFile().listFiles();
 
         File forgeInstaller = FileHelper.findFile(files, keywords, no);
